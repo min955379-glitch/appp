@@ -1,0 +1,31 @@
+name: Enterprise AI Studio Next.js CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  quality-and-security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      - name: Install Deterministic Dependencies
+        run: npm ci --ignore-scripts
+      - name: Strict TypeScript Verification
+        run: npm run lint
+      - name: Execute Deterministic Unit Test Suite
+        run: npx --yes tsx --test src/utils/studioLogic.test.ts
+      - name: Build Production Bundle
+        run: npm run build

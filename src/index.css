@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.ingredient-gradient-subtle {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.18) 0%, rgba(79, 70, 229, 0.12) 50%, rgba(14, 165, 233, 0.08) 100%);
+}
+
+.ingredient-gradient-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 55%, #0284c7 100%);
+}
+
+.ingredient-gradient-surface {
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 60%),
+              radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.08), transparent 60%);
+}

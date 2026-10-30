@@ -1,0 +1,6 @@
+{
+  "name": "AI Studio Apps — Enterprise Multimodal App Gallery & Workbench",
+  "description": "Production-grade AI Studio application gallery, interactive prompt-to-app workbench, Next.js TypeScript code inspector, architecture documentation, and automated GitHub CI/CD deployment pipeline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
